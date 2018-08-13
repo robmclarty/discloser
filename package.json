@@ -1,0 +1,27 @@
+{
+  "name": "discloser",
+  "version": "0.0.1",
+  "description": "Disclose sensitive information to central system securely and anonymously.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/robmclarty/discloser.git"
+  },
+  "keywords": [
+    "encryption",
+    "secure",
+    "message",
+    "text",
+    "cloud",
+    "electron"
+  ],
+  "author": "Rob McLarty <r@robmclarty.com> (http://robmclarty.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robmclarty/discloser/issues"
+  },
+  "homepage": "https://github.com/robmclarty/discloser#readme"
+}
