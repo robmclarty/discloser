@@ -4,7 +4,11 @@
   "description": "Disclose sensitive information to central system securely and anonymously.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx electron ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx soko build --jsIn ./app/index.js --cssIn ./styles/index.scss --assetsIn ./assets",
+    "build:js": "npx soko build:js ./app/index.js",
+    "build:start": "npm run build && npm start"
   },
   "repository": {
     "type": "git",
@@ -23,5 +27,19 @@
   "bugs": {
     "url": "https://github.com/robmclarty/discloser/issues"
   },
-  "homepage": "https://github.com/robmclarty/discloser#readme"
+  "homepage": "https://github.com/robmclarty/discloser#readme",
+  "devDependencies": {
+    "electron": "^2.0.7",
+    "soko": "^0.2.6"
+  },
+  "dependencies": {
+    "crypto-butter": "0.0.1",
+    "localforage": "^1.7.2",
+    "pako": "^1.0.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  }
 }
