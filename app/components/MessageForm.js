@@ -6,7 +6,7 @@ const MessageForm = ({
 }) => {
   MessageForm.displayName = 'MessageForm'
   MessageForm.propTypes = {
-    onSubmit: PropTypes.func
+    sendMessage: PropTypes.func
   }
   MessageForm.defaultProps = {
   }

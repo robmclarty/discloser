@@ -2,7 +2,9 @@ const API_ROOT_URL = 'http://localhost:3000' // TODO: move this to env-controlle
 
 import fetch from 'node-fetch'
 import {
-  SEND_MESSAGE
+  SEND_MESSAGE,
+  DECODE_MESSAGES,
+  RECEIVE_MESSAGES
 } from '../constants/action_types'
 import {
   encryptMessage,
@@ -50,29 +52,28 @@ export const sendMessage = ({
       })
     })
     .catch(err => console.log('Ajax error: ', err))
-
-  // try {
-  //   const res = await callApi(`${ API_ROOT_URL }/messages`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //     },
-  //     body: JSON.stringify(msg)
-  //   })
-  //
-  //   const json = await res.json()
-  //
-  //   console.log('json: ', json)
-  //
-  //   return {
-  //     type: SEND_MESSAGE,
-  //     message: {
-  //       userId,
-  //       createdAt: json.createdAt
-  //     }
-  //   }
-  // } catch (err) {
-  //   console.log('Ajax error: ', err)
-  // }
 }
+
+export const fetchMessages = userId => (dispatch, callApi) => {
+  return callApi(`${ API_ROOT_URL }/messages`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+    .then(res => res.json())
+    .then(json => {
+      console.log('messages: ', json.messages)
+
+      dispatch({
+        type: RECEIVE_MESSAGES,
+        messages: json.messages
+      })
+    })
+    .catch(err => console.log('Ajax error: ', err))
+}
+
+export const decodeMessages = key => ({
+  type: DECODE_MESSAGES,
+  decrypt: data => decryptMessage(key, data, '')
+})

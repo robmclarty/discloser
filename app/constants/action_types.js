@@ -1,1 +1,9 @@
+// Messages
 export const SEND_MESSAGE = 'SEND_MESSAGE'
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
+export const DECODE_MESSAGES = 'DECODE_MESSAGES'
+
+// Screens
+export const VIEW_MESSAGE = 'VIEW_MESSAGE'
+export const VIEW_LIST_MESSAGES = 'VIEW_LIST_MESSAGES'
+export const VIEW_SEND_MESSAGE = 'VIEW_SEND_MESSAGE'

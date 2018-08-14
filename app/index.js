@@ -5,9 +5,13 @@ import { Provider } from 'react-redux'
 
 import appReducer from './reducers'
 import apiMiddleware from './middleware/api_middleware'
+import { fetchMessages } from './actions'
 import App from './containers/App'
 
 const store = createStore(appReducer, applyMiddleware(apiMiddleware))
+
+const userId = 1
+store.dispatch(fetchMessages(userId))
 
 render(
   <Provider store={store}>

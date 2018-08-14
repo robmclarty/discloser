@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { sendMessage } from '../actions'
 import MessageForm from '../components/MessageForm'
-import Screen from '../components/Screen'
+import Page from '../components/Page'
 
-const SendMessageScreen = ({ sendMessage }) => (
-  <Screen name="Send Message">
+const SendMessagePage = ({ sendMessage }) => (
+  <Page name="Send Message">
     <MessageForm sendMessage={sendMessage} />
-  </Screen>
+  </Page>
 )
 
 const mapStateToProps = state => ({
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
   sendMessage: msg => dispatch(sendMessage(msg))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SendMessageScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(SendMessagePage)

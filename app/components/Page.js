@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Screen = ({ name, children }) => (
-  <section className="screen">
+const Page = ({ name, children }) => (
+  <section className="page">
     {name &&
       <h1>{name}</h1>
     }
@@ -11,8 +11,8 @@ const Screen = ({ name, children }) => (
   </section>
 )
 
-Screen.propTypes = {
+Page.propTypes = {
   name: PropTypes.string
 }
 
-export default Screen
+export default Page
