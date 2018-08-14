@@ -4,9 +4,10 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 
 import appReducer from './reducers'
+import apiMiddleware from './middleware/api_middleware'
 import App from './containers/App'
 
-const store = createStore(appReducer)
+const store = createStore(appReducer, applyMiddleware(apiMiddleware))
 
 render(
   <Provider store={store}>

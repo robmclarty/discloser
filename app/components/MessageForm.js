@@ -26,8 +26,7 @@ const MessageForm = ({
         userId: refs.userIdRef.value,
         subject: refs.subjectRef.value,
         body: refs.bodyRef.value,
-        key: refs.keyRef.value,
-        createdAt: Date.now()
+        key: refs.keyRef.value
       })
 
       // Reset form values.
