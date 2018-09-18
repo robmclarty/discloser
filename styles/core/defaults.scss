@@ -38,32 +38,21 @@ body {
 }
 
 h1,
-h2,
-h3,
-h4 {
+h2 {
   margin: 0;
   padding: 0;
   color: $col-titles;
   font-weight: normal;
+  font-family: $font-bold;
 }
 h1 {
-  font-size: 4em;
+  font-size: 2em;
   line-height: 1em;
   margin-bottom: .75em;
 }
 h2 {
-  font-size: 3em;
-  line-height: 3.2em;
-}
-h3 {
-  font-size: 2em;
-  line-height: 2.2em;
-}
-h4 {
-  font-family: $font-bold;
-  font-size: 1em;
-  line-height: 1em;
-  margin: 1em 0;
+  font-size: 1.2em;
+  line-height: 0.9em;
 }
 
 a {

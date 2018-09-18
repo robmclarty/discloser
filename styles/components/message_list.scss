@@ -1,0 +1,14 @@
+.message-list {
+  margin-bottom: 2em;
+  list-style-type: disc;
+
+  & > li {
+    color: $col-interactive;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

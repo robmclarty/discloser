@@ -6,10 +6,8 @@ const Menu = ({
   viewSendMessage
 }) => (
   <nav className="main-nav">
-    <ul>
-      <li><button onClick={viewListMessages}>List</button></li>
-      <li><button onClick={viewSendMessage}>Send</button></li>
-    </ul>
+    <button onClick={viewListMessages}>List</button>
+    <button onClick={viewSendMessage}>Send</button>
   </nav>
 )
 

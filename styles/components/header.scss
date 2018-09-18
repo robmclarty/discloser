@@ -1,6 +1,42 @@
 .app-name {
+  margin: 0 $header-border;
   font-size: 3em;
+  font-family: 'intro_rust_free';
+  color: #ccc;
 }
 
 .main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: auto;
+  height: 100%;
+  font-size: 1em;
+  line-height: 1em;
+  padding: 0 $header-border 0 0;
+
+  & > button {
+    margin: 0;
+    padding: 0 1em;
+    height: 100%;
+    line-height: 3.25em;
+    font-family: $font-regular;
+    background: transparent;
+    color: $col-secondary;
+    text-transform: none;
+    text-decoration: none;
+    border-radius: 0;
+    border: 0;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      color: $col-primary;
+      background: rgba(0, 0, 0, .04);
+    }
+  }
 }

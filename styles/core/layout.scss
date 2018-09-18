@@ -12,8 +12,8 @@
     align-items: center;
     width: 100%;
     height: 3.5em;
-    background: linear-gradient(0, rgba(224, 224, 206, .9), $col-bg);
-    box-shadow: 0 0 15px rgba(0, 0, 0, .08);
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
   }
 
   // This element's top padding includes the height of the header, which

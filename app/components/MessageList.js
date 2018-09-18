@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { cipherTitle } from '../helpers/string_helper'
 
 const MessageList = ({
   messages,
@@ -7,18 +8,13 @@ const MessageList = ({
 }) => (
   <ul className="message-list">
     {messages.map(msg => {
-      if (!msg.subject || !msg.body) {
-        return (
-          <li key={msg.id}>
-            <div><b>{msg.id}</b>: {msg.created_at}</div>
-            <div>{msg.data}</div>
-          </li>
-        )
-      }
+      let title = msg.subject
+
+      if (!msg.subject || !msg.body) title = cipherTitle(msg.data)
 
       return (
         <li key={msg.id} onClick={() => viewMessage(msg.id)}>
-          {msg.subject}
+          {title}
         </li>
       )
     })}

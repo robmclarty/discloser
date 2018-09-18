@@ -1,12 +1,22 @@
 // Core
-$col-bg:          #e0e0ce;
+$col-bg:          #f0f0f0;
 $col-bg-hover:    lighten($col-bg, 3%);
+
+$col-titles:      #31708f;
+$col-primary:     #333;
+$col-secondary:   #999;
+
+
+
 //$col-interactive: #f2af29;
 $col-interactive: #4bc0c0;
-$col-primary:     #3b3b36;
-$col-secondary:   #9b9b8f;
+
+
 $col-tertiary:    lighten($col-secondary, 10%);
-$col-titles:      #ad343e;
+
+
+
+
 $col-cancel:      #ad343e;
 
 // Flash

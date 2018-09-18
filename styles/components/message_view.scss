@@ -1,0 +1,12 @@
+.message-view {
+  & > h3 {
+  }
+  & > footer {
+    font-size: 0.8em;
+    color: lighten($col-secondary, 0.8);
+  }
+}
+
+.message-body {
+  word-wrap:break-word;
+}
