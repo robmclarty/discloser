@@ -27,22 +27,25 @@ const renderPage = name => {
   }
 }
 
-const App = ({ 
+const App = ({
   pageName,
   viewListMessages,
   viewSendMessage
 }) => (
   <div className="app-container discloser">
-    <header>Discloser</header>
-    
-    <Menu
-        viewListMessages={viewListMessages}
-        viewSendMessage={viewSendMessage}
-    />
+    <header>
+      <h1 className="app-name">Discloser</h1>
+      <Menu
+          viewListMessages={viewListMessages}
+          viewSendMessage={viewSendMessage}
+      />
+    </header>
 
     <main>
       {renderPage(pageName)}
     </main>
+
+    <footer>&copy; 2018 Rob McLarty</footer>
   </div>
 )
 
