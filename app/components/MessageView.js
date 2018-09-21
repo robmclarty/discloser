@@ -1,11 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MessageView = ({
-  subject,
-  body,
-  timestamp
-}) => (
+const MessageView = ({ subject, body, timestamp }) => (
   <div className="message-view">
     <h3>{subject}</h3>
     <div className="message-body">{body}</div>

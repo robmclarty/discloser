@@ -19,4 +19,7 @@ const mapDispatchToProps = dispatch => ({
   sendMessage: msg => dispatch(sendMessage(msg))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SendMessagePage)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SendMessagePage)

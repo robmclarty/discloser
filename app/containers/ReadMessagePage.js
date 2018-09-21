@@ -17,11 +17,7 @@ const ReadMessagePage = ({ msg }) => {
 
   return (
     <Page name="Viewing Message">
-      <MessageView
-          subject={subject}
-          body={body}
-          timestamp={msg.created_at}
-      />
+      <MessageView subject={subject} body={body} timestamp={msg.created_at} />
     </Page>
   )
 }

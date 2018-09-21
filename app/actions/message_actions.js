@@ -6,17 +6,12 @@ import {
   DECODE_MESSAGES,
   RECEIVE_MESSAGES
 } from '../constants/action_types'
-import {
-  encryptMessage,
-  decryptMessage
-} from '../helpers/crypto_helper'
+import { encryptMessage, decryptMessage } from '../helpers/crypto_helper'
 
-export const sendMessage = ({
-  userId,
-  subject,
-  body,
-  key
-}) => (dispatch, callApi) => {
+export const sendMessage = ({ userId, subject, body, key }) => (
+  dispatch,
+  callApi
+) => {
   const encryptedMessage = encryptMessage(key, {
     subject,
     body
@@ -31,11 +26,11 @@ export const sendMessage = ({
 
   console.log('encrypted message object: ', msg)
 
-  return callApi(`${ API_ROOT_URL }/messages`, {
+  return callApi(`${API_ROOT_URL}/messages`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      Accept: 'application/json'
     },
     body: JSON.stringify(msg)
   })
@@ -55,10 +50,10 @@ export const sendMessage = ({
 }
 
 export const fetchMessages = userId => (dispatch, callApi) => {
-  return callApi(`${ API_ROOT_URL }/messages`, {
+  return callApi(`${API_ROOT_URL}/messages`, {
     method: 'GET',
     headers: {
-      'Accept': 'application/json'
+      Accept: 'application/json'
     }
   })
     .then(res => res.json())

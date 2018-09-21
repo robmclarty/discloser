@@ -7,29 +7,29 @@ import {
 const initialState = []
 
 const messages = (state = initialState, action) => {
-  switch(action.type) {
-  // case SEND_MESSAGE:
-  //   return {
-  //     ...state,
-  //     messages: [
-  //       action.message,
-  //       ...messages
-  //     ]
-  //   }
-  case RECEIVE_MESSAGES:
-    return action.messages
-  case DECODE_MESSAGES:
-    return state.map(msg => {
-      const json = action.decrypt(msg.data)
+  switch (action.type) {
+    // case SEND_MESSAGE:
+    //   return {
+    //     ...state,
+    //     messages: [
+    //       action.message,
+    //       ...messages
+    //     ]
+    //   }
+    case RECEIVE_MESSAGES:
+      return action.messages
+    case DECODE_MESSAGES:
+      return state.map(msg => {
+        const json = action.decrypt(msg.data)
 
-      return {
-        ...msg,
-        subject: json.subject,
-        body: json.body
-      }
-    })
-  default:
-    return state
+        return {
+          ...msg,
+          subject: json.subject,
+          body: json.body
+        }
+      })
+    default:
+      return state
   }
 }
 

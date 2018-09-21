@@ -12,10 +12,13 @@ import pako from 'pako'
 const encryptMessage = (publicKey, obj) => {
   const jsonStr = JSON.stringify(obj)
   const compressedBuffer = pako.deflate(jsonStr) // return utf8-encoded buffer
-  const encryptedBuffer = crypto.publicEncrypt({
-    key: publicKey,
-    padding: crypto.constants.RSA_PKCS1_OAEP_PADDING
-  }, compressedBuffer)
+  const encryptedBuffer = crypto.publicEncrypt(
+    {
+      key: publicKey,
+      padding: crypto.constants.RSA_PKCS1_OAEP_PADDING
+    },
+    compressedBuffer
+  )
 
   return encryptedBuffer.toString('base64')
 }
@@ -28,17 +31,17 @@ const encryptMessage = (publicKey, obj) => {
 // TODO: decompress data before returning
 // TODO: verify the signature matches?
 const decryptMessage = (privateKey, base64Str, passphrase) => {
-  const decryptedBuffer = crypto.privateDecrypt({
-    key: privateKey,
-    padding: crypto.constants.RSA_PKCS1_OAEP_PADDING
-  }, Buffer.from(base64Str, 'base64'))
+  const decryptedBuffer = crypto.privateDecrypt(
+    {
+      key: privateKey,
+      padding: crypto.constants.RSA_PKCS1_OAEP_PADDING
+    },
+    Buffer.from(base64Str, 'base64')
+  )
   const decompressedBuffer = pako.inflate(decryptedBuffer, { to: 'string' })
   const jsonStr = decompressedBuffer.toString('utf8')
 
   return JSON.parse(jsonStr)
 }
 
-export {
-  encryptMessage,
-  decryptMessage
-}
+export { encryptMessage, decryptMessage }

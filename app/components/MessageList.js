@@ -2,10 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { cipherTitle } from '../helpers/string_helper'
 
-const MessageList = ({
-  messages,
-  viewMessage
-}) => (
+const MessageList = ({ messages, viewMessage }) => (
   <ul className="message-list">
     {messages.map(msg => {
       let title = msg.subject

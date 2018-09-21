@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MessageForm = ({
-  sendMessage
-}) => {
+const MessageForm = ({ sendMessage }) => {
   MessageForm.displayName = 'MessageForm'
   MessageForm.propTypes = {
     sendMessage: PropTypes.func
   }
-  MessageForm.defaultProps = {
-  }
+  MessageForm.defaultProps = {}
 
   const refs = {
     userIdRef: null,
@@ -30,33 +27,27 @@ const MessageForm = ({
       })
 
       // Reset form values.
-      Object.keys(refs).forEach(name => refs[name].value = '')
+      Object.keys(refs).forEach(name => (refs[name].value = ''))
     }
   }
 
   return (
-    <form onSubmit={ onSubmit } className="message-form">
+    <form onSubmit={onSubmit} className="message-form">
+      <input type="text" ref={n => (refs.userIdRef = n)} placeholder="UserID" />
       <input
-          type="text"
-          ref={n => refs.userIdRef = n}
-          placeholder="UserID"
-      />
-      <input
-          type="text"
-          ref={n => refs.subjectRef = n}
-          placeholder="Subject"
+        type="text"
+        ref={n => (refs.subjectRef = n)}
+        placeholder="Subject"
       />
       <textarea
-          ref={n => refs.bodyRef = n}
-          placeholder="Type your message here">
-      </textarea>
+        ref={n => (refs.bodyRef = n)}
+        placeholder="Type your message here"
+      />
       <textarea
-          ref={n => refs.keyRef = n}
-          placeholder="Input encryption key here">
-      </textarea>
-      <button type="submit">
-        Send
-      </button>
+        ref={n => (refs.keyRef = n)}
+        placeholder="Input encryption key here"
+      />
+      <button type="submit">Send</button>
     </form>
   )
 }

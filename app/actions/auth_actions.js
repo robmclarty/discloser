@@ -16,7 +16,7 @@ import {
   decodePayload
 } from '../middleware/api_middleware'
 import {
-  fetchMessages,
+  fetchMessages
   //fetchKeys
 } from './'
 import {
@@ -33,7 +33,6 @@ const startup = (dispatch, state) => {
   // dispatch(fetchKeys(userId))
   console.log('logged in with payload: ', state.auth.payload)
 }
-
 
 // Register
 // --------
@@ -73,7 +72,6 @@ export const registerFail = err => ({
   message: err,
   receivedAt: Date.now()
 })
-
 
 // Login
 // -----
@@ -144,7 +142,6 @@ const loginFail = err => ({
   message: err,
   receivedAt: Date.now()
 })
-
 
 // Logout
 // ------

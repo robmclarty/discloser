@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const DecodeMessageForm = ({
-  decodeMessages
-}) => {
+const DecodeMessageForm = ({ decodeMessages }) => {
   DecodeMessageForm.displayName = 'DecodeMessageForm'
   DecodeMessageForm.propTypes = {
     decodeMessages: PropTypes.func
@@ -24,14 +22,12 @@ const DecodeMessageForm = ({
   }
 
   return (
-    <form onSubmit={ onSubmit } className="decode-messages-form">
+    <form onSubmit={onSubmit} className="decode-messages-form">
       <textarea
-          ref={n => refs.keyRef = n}
-          placeholder="Input decryption key here">
-      </textarea>
-      <button type="submit">
-        Decode Messages
-      </button>
+        ref={n => (refs.keyRef = n)}
+        placeholder="Input decryption key here"
+      />
+      <button type="submit">Decode Messages</button>
     </form>
   )
 }

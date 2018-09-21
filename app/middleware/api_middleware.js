@@ -40,26 +40,20 @@
 import fetch from 'node-fetch'
 import localforage from 'localforage'
 import { APP_NAME } from '../constants/config'
-import {
-  apiAuthUrl
-} from '../helpers/api_url_helper'
+import { apiAuthUrl } from '../helpers/api_url_helper'
 
 // Prefer localstorage before trying bulkier solutions.
 localforage.config({
   name: APP_NAME,
   storeName: 'auth',
-  driver: [
-    localforage.INDEXEDDB,
-    localforage.WEBSQL,
-    localforage.LOCALSTORAGE
-  ]
+  driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE]
 })
 
 const tokenExpirationWindow = 60 * 10 // 10min in seconds
 
 const jsonHeaders = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json'
+  Accept: 'application/json'
 }
 
 // Make the actual fetch() call. Reject if there's an error, otherwise resolve
@@ -85,7 +79,8 @@ const withinExpirationWindow = payload => {
   return payload.exp <= nowInSeconds + tokenExpirationWindow
 }
 
-export const tokenIsExpired = token => withinExpirationWindow(decodePayload(token))
+export const tokenIsExpired = token =>
+  withinExpirationWindow(decodePayload(token))
 
 // Store tokens in local-storage and return the tokens on success, otherwise
 // return a rejected promise. To be used with the login fetch-promise block.
@@ -123,9 +118,9 @@ export const getTokens = async () => {
 // If tokens already exist from the Redux state, use those otherwise try to
 // get them from local storage.
 const loadTokens = async tokens => {
-  return !tokens.accessToken || !tokens.refreshToken ?
-    await getTokens() :
-    tokens
+  return !tokens.accessToken || !tokens.refreshToken
+    ? await getTokens()
+    : tokens
 }
 
 // Get fresh access token using a currently valid refresh token.
@@ -147,7 +142,7 @@ export const refreshTokensIfExpired = async tokens => {
       method: 'PUT',
       headers: {
         ...jsonHeaders,
-        'Authorization': `Bearer ${ refreshToken }`
+        Authorization: `Bearer ${refreshToken}`
       }
     }
 
@@ -159,7 +154,7 @@ export const refreshTokensIfExpired = async tokens => {
       refreshToken: json.refreshToken
     }
   } catch (err) {
-    throw `Problem refreshing access-token: ${ JSON.stringify(err) }`
+    throw `Problem refreshing access-token: ${JSON.stringify(err)}`
   }
 }
 
@@ -179,7 +174,7 @@ const optionsWithAuth = (options, bearerToken) => {
     ...options,
     headers: {
       ...options.headers,
-      'Authorization': `Bearer ${ bearerToken }`
+      Authorization: `Bearer ${bearerToken}`
     }
   }
 }
@@ -209,9 +204,9 @@ const callApi = state => {
     // Otherwise, add the authorization header with the JWT and make an
     // authorized request with fresh tokens.
     const tokens = await freshTokens(state)
-    const bearerToken = useRefreshToken ?
-      tokens.refreshToken :
-      tokens.accessToken
+    const bearerToken = useRefreshToken
+      ? tokens.refreshToken
+      : tokens.accessToken
 
     return await request(url, optionsWithAuth(options, bearerToken))
   }
@@ -219,9 +214,9 @@ const callApi = state => {
 
 // Implement thunk middleware.
 const apiMiddleware = ({ dispatch, getState }) => next => action => {
-  return typeof action === 'function' ?
-    action(dispatch, callApi(getState()), getState) :
-    next(action)
+  return typeof action === 'function'
+    ? action(dispatch, callApi(getState()), getState)
+    : next(action)
 }
 
 export default apiMiddleware
