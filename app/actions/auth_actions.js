@@ -29,7 +29,7 @@ import {
 const startup = (dispatch, state) => {
   const userId = state.auth.payload.userId
 
-  dispatch(fetchMessages())
+  dispatch(fetchMessages(userId))
   // dispatch(fetchKeys(userId))
   console.log('logged in with payload: ', state.auth.payload)
 }
@@ -99,7 +99,7 @@ export const login = creds => async (dispatch, callApi, getState) => {
     const tokens = await updateTokens(json.tokens)
 
     dispatch(loginSuccess(tokens))
-    startup(dispatch, getState()))
+    startup(dispatch, getState())
     // TODO: change page
   } catch (err) {
     dispatch(loginFail(err))
