@@ -1,13 +1,16 @@
 {
   "name": "discloser",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Disclose sensitive information to central system securely and anonymously.",
+  "author": "Rob McLarty <r@robmclarty.com> (http://robmclarty.com)",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "start": "npx electron ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx soko build --jsIn ./app/index.js --cssIn ./styles/index.scss --assetsIn ./assets",
-    "build:js": "npx soko build:js ./app/index.js",
+    "build2": "../../tool-boxes/soko/bin/soko.js build --jsIn ./app/index.js --cssIn ./styles/index.scss --assetsIn ./assets",
+    "build:js": "../../tool-boxes/soko/bin/soko.js build:js ./app/index.js --electron",
     "build:start": "npm run build && npm start",
     "pretty": "prettier --single-quote --no-semi --jsx-bracket-same-line --write 'app/**/*.js'"
   },
@@ -23,17 +26,10 @@
     "cloud",
     "electron"
   ],
-  "author": "Rob McLarty <r@robmclarty.com> (http://robmclarty.com)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/robmclarty/discloser/issues"
   },
   "homepage": "https://github.com/robmclarty/discloser#readme",
-  "devDependencies": {
-    "electron": "^2.0.7",
-    "prettier": "1.14.3",
-    "soko": "^0.2.6"
-  },
   "dependencies": {
     "crypto-butter": "0.0.1",
     "localforage": "^1.7.2",
@@ -44,5 +40,10 @@
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0"
-  }
+  },
+  "devDependencies": {
+    "electron": "^2.0.7",
+    "prettier": "1.14.3",
+    "soko": "^0.3.1"
+  },
 }
