@@ -33,7 +33,6 @@
   "dependencies": {
     "crypto-butter": "0.0.1",
     "localforage": "^1.7.2",
-    "node-fetch": "^2.2.0",
     "pako": "^1.0.6",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
@@ -45,5 +44,5 @@
     "electron": "^2.0.7",
     "prettier": "1.14.3",
     "soko": "^0.3.1"
-  },
+  }
 }

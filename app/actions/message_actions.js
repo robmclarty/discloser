@@ -1,6 +1,5 @@
 const API_ROOT_URL = 'http://localhost:3000' // TODO: move this to env-controlled config variable
 
-import fetch from 'node-fetch'
 import {
   SEND_MESSAGE,
   DECODE_MESSAGES,
@@ -30,7 +29,7 @@ export const sendMessage = ({ userId, subject, body, key }) => (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Accept: 'application/json'
+      'Accept': 'application/json'
     },
     body: JSON.stringify(msg)
   })

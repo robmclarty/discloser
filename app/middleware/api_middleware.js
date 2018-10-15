@@ -37,7 +37,6 @@
 // The `dispatch` and `getState` parameters are simply passed from Redux as
 // a convenience.
 
-import fetch from 'node-fetch'
 import localforage from 'localforage'
 import { APP_NAME } from '../constants/config'
 import { apiAuthUrl } from '../helpers/api_url_helper'
