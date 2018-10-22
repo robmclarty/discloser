@@ -1,6 +1,6 @@
 {
   "name": "discloser",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Disclose sensitive information to central system securely and anonymously.",
   "author": "Rob McLarty <r@robmclarty.com> (http://robmclarty.com)",
   "license": "MIT",
