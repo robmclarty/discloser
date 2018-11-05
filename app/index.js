@@ -5,17 +5,17 @@ import { Provider } from 'react-redux'
 
 import appReducer from './reducers'
 import apiMiddleware from './middleware/api_middleware'
-import { autoLogin } from './actions'
+import { autoLogin, fetchMessages } from './actions'
 
 import App from './containers/App'
 
 const store = createStore(appReducer, applyMiddleware(apiMiddleware))
 
-// const userId = 1
-// store.dispatch(fetchMessages(userId))
+const userId = 1
+store.dispatch(fetchMessages(userId))
 
 // Try to login from tokens in localstorage.
-store.dispatch(autoLogin())
+//store.dispatch(autoLogin())
 
 render(
   <Provider store={store}>

@@ -25,13 +25,14 @@ export const sendMessage = ({ userId, subject, body, key }) => (
 
   console.log('encrypted message object: ', msg)
 
-  return callApi(`${API_ROOT_URL}/messages`, {
+  return callApi(`${API_ROOT_URL}/users/${ userId }/messages`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
-    body: JSON.stringify(msg)
+    body: JSON.stringify(msg),
+    requireAuth: false // TODO: remove this when auth is implemented
   })
     .then(res => res.json())
     .then(json => {
@@ -49,11 +50,12 @@ export const sendMessage = ({ userId, subject, body, key }) => (
 }
 
 export const fetchMessages = userId => (dispatch, callApi) => {
-  return callApi(`${API_ROOT_URL}/messages`, {
+  return callApi(`${API_ROOT_URL}/users/${ userId }/messages`, {
     method: 'GET',
     headers: {
       Accept: 'application/json'
-    }
+    },
+    requireAuth: false // TODO: remove this when auth is implemented
   })
     .then(res => res.json())
     .then(json => {
